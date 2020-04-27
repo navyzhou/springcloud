@@ -1,0 +1,20 @@
+server:
+  port: 7788
+  
+# management 是关于 actuator 相关的，接下来自动刷新配置的时候需要使用
+management:
+  endpoint:
+    shutdown:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+ 
+# 下面部分是当无法读取配置中心的配置时，使用此配置，以免项目无法启动。       
+email:
+  sendEmail: 1293580602@qq.com
+  pwd: dihpepdwtahlgefh
+        
+uploadload:
+  photoPath: pics

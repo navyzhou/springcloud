@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: prod
+  application:
+    name: config-zuul-server   # 注意这个名字必须跟配置中心fresh-config中config目录下的配置文件名字同名
+  cloud:
+     config:
+       uri: http://127.0.0.1:5566
+       label: master
+       profile: dev
+
+---
+spring:
+  profiles: dev
+  application:
+    name: config-zuul-server
+  cloud:
+     config:
+       uri: http://127.0.0.1:5566
+       label: master
+       profile: prod

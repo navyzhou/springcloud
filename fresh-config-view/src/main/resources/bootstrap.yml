@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: prod
+  application:
+    name: config-fresh-view
+  cloud:
+     config:
+       uri: http://127.0.0.1:5566
+       label: master
+       profile: prod
+
+
+---
+spring:
+  profiles: dev
+  application:
+    name: config-fresh-view
+  cloud:
+     config:
+       uri: http://127.0.0.1:5566
+       label: master
+       profile: dev

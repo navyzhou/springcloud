@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  对应接口的全路径 -->
+<mapper namespace="com.yc.fresh.mapper.IAdminInfoMapper">
+	<!-- id值必须跟这个接口里面的方法名一致 -->
+	<insert id="add" parameterType="AdminInfo">
+		insert into adminInfo values(0, #{aname}, password(#{pwd}), #{tel})
+	</insert>
+	
+	<select id="login" parameterType="AdminInfo" resultType="AdminInfo">
+		select aid, aname, pwd, tel from adminInfo where (aname=#{aname} or tel = #{aname}) and pwd = password(#{pwd})
+	</select>
+
+	<select id="findAll" resultType="AdminInfo">
+		select aid, aname, pwd, tel from adminInfo order by aid;
+	</select>
+	
+	<update id="updatPwd" parameterType="int">
+		update adminInfo set pwd = password(right(tel, 6)) where aid = #{_parameter}
+	</update>
+</mapper>

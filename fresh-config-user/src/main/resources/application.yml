@@ -1,0 +1,34 @@
+server:
+  port: 7787
+  
+# management 是关于 actuator 相关的，接下来自动刷新配置的时候需要使用
+management:
+  endpoint:
+    shutdown:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+ 
+# 下面部分是当无法读取配置中心的配置时，使用此配置，以免项目无法启动。       
+email:
+  sendEmail: 1293580602@qq.com
+  pwd: dihpepdwtahlgefh
+        
+uploadload:
+  photoPath: pics
+  
+spring:
+  mail:
+    host: smtp.qq.com # 邮件发送
+    username: 1293580602@qq.com # 发送方的邮箱
+    password: dihpepdwtahlgefh # 对于qq邮箱而言 密码指的就是发送方的授权码 
+    port: 465
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
